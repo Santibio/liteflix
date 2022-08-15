@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import NavbarButton from '../../components/UI/Buttons/NavbarButton'
 
 const Navbar = () => {
+ const [isOpen, setIsOpen] =  useState(false)
   return (
-    <div>Navbar</div>
+    <>
+    <NavbarButton setIsOpen={setIsOpen} isOpen={isOpen}/>
+    </>
   )
 }
 
