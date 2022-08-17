@@ -22,6 +22,7 @@ const StyledMenu = styled((props) => (
   '& .MuiPaper-root': {
     left: "0 !important",
     top: "82vh !important",
+    heigth: "200px",
     borderRadius: 0,
     backgroundColor: "#242424",
     marginTop: theme.spacing(2),
