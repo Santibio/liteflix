@@ -21,7 +21,8 @@ const StyledMenu = styled((props) => (
 ))(({ theme }) => ({
   '& .MuiPaper-root': {
     left: "0 !important",
-    top: "82vh !important",
+    bottom: "0vh !important",
+    top: "auto !important",
     heigth: "200px",
     borderRadius: 0,
     backgroundColor: "#242424",
