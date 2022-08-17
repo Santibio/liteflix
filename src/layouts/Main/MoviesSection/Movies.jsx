@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Movie1 from '../../../assets/images/img1.png'
-import Movie2 from '../../../assets/images/img2.png'
-import Movie3 from '../../../assets/images/img3.png'
-import Movie4 from '../../../assets/images/img4.png'
+import Movie1 from '../../../assets/images/img1.webp'
+import Movie2 from '../../../assets/images/img2.webp'
+import Movie3 from '../../../assets/images/img3.webp'
+import Movie4 from '../../../assets/images/img4.webp'
 import Movie from '../../../components/Movie'
 
 
@@ -21,6 +21,7 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 gap: 1rem;
+margin-bottom: 2rem;
 `
 
 const Movies = () => {

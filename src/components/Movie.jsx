@@ -1,6 +1,7 @@
 import React from 'react'
 import PlayButton from './UI/Buttons/PlayButton'
 import styled from 'styled-components'
+import Star from './UI/Decoration/Star'
 
 
 const MovieStyle= styled.div`
@@ -14,12 +15,12 @@ align-items: center;
 background-image: ${props => `url(${props.bgImage})`};
 background-size: cover;
 background-position: center;
-transition: all 3s ease;
+transition: background-image 1s ease-in-out;
 
 .movie-img{
     width: 100%;
 }
-.info-play-contianer{
+.info-play-container{
     position: absolute;
     top: 100;
     left: 100;
@@ -29,11 +30,11 @@ transition: all 3s ease;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: #fff
-    
+    color: #fff;
+    transition: opacity 150ms ease-in-out;
 }
 
-.play-contianer{
+.play-container{
     width: 48px;
     height: 48px;
     border: 1px solid #FFFFFF;
@@ -56,19 +57,87 @@ transition: all 3s ease;
 
 &:hover{
   background-image: linear-gradient(rgba(36, 36, 36, 0.7),rgba(36, 36, 36, 0.7)) , ${props => `url(${props.bgImage})`};
+}
 
+&:hover .info-play-container{
+    opacity: 0;
+}
+
+.container-hover{
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    position: absolute;
+    top: 200px;
+    left: 25px;
+    transition: top 250ms ease;
+    width: 85%;
+}
+
+&:hover .container-hover{
+    top: 100px;
+}
+
+.info-play-container-hover{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5rem
+    
+}
+
+.play-container.hover{
+    width: 24px;
+    height: 24px;
+    padding-left: 2px;
+    margin: 0
+}
+
+.rating-year-container{
+    display: flex;
+    justify-content: space-between
+}
+
+.rating-container{
+    display: flex;
+    align-items: center;
+    gap: .5rem
+}
+
+.rating,.year{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 2px;
+    text-align: left;
 }
 
 `
 
+
 const Movie = ({picture, title, rating, year}) => {
   return (
     <MovieStyle bgImage={picture}>
-        <div  className='info-play-contianer'>
-            <div className='play-contianer'>
-                <PlayButton/>
+        <div  className='info-play-container'>
+            <div className='play-container'>
+                <PlayButton width="12.77" height="16.79"/>
             </div>
             <p className='info-text'>{title}</p>
+        </div>
+        <div  className='container-hover'>
+            <div className='info-play-container-hover'>
+                <div className='play-container hover'>
+                    <PlayButton width="6.38" height="8.39"/>
+                </div>
+                <p className='info-text-hover'>{title}</p>
+            </div>
+            <div className='rating-year-container'>
+                 <div className='rating-container'>
+                    <Star/>
+                     <span className='rating'>{rating}</span>
+                </div>
+                <span className='year'>{year}</span>
+            </div>
         </div>
     </MovieStyle>
   )

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Header from "./layouts/Header";
 import Main from "./layouts/Main";
-import bgImage from './assets/images/background.png'
+import bgImage from './assets/images/background.webp'
 
 const MainContainer = styled.div`
-  min-height: 100vh;
+  height: 100vh;
   background-image: linear-gradient(
       180deg,
       rgba(36, 36, 36, 0) 0%,
