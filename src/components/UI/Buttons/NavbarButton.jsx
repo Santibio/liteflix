@@ -11,7 +11,7 @@ const NavbarButtonContainer = styled.div`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10;
+  z-index: 1500;
 
   &:focus {
     outline: none;
@@ -25,14 +25,25 @@ div {
     position: relative;
     transform-origin: 1px;
 
+     :first-child {
+      transform: ${({ open }) => open ? 'rotate(45deg) scaleX(0.65)' : 'rotate(0)'};
+    }
+
+    :nth-child(2) {
+      opacity: ${({ open }) => open ? '0' : '1'};
+      transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
+    }
+
     :nth-child(3) {
+      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
       width: 17px
     }
+
     }
 `
 
 
-const NavbarButton = ({isOpen,setIsOpen}) => {
+const NavbarButton = ({ isOpen,setIsOpen}) => {
   return (
     <NavbarButtonContainer open={isOpen} onClick={()=> setIsOpen(!isOpen)}>
         <div />

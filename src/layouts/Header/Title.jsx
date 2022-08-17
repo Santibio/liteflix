@@ -5,7 +5,7 @@ import LightText from '../../components/UI/Text/LightText'
 
 const Title = () => {
   return (
-    <Typography color='secondary'>
+    <Typography color='secondary' sx={{zIndex: "1500"}}>
         <BoldText>Lite</BoldText>
         <LightText>Flix</LightText>
     </Typography>

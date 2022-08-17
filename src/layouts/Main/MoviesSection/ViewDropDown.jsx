@@ -7,6 +7,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Check from '@mui/icons-material/Check';
 import { Slide, Typography } from '@mui/material';
 import { useState } from 'react';
+import styledComponent from 'styled-components'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -43,6 +44,22 @@ const StyledMenu = styled((props) => (
   },
 }));
 
+const ViewText = styledComponent.span`
+font-size: 18px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 4px;
+text-align: center;
+`
+const OptionText = styledComponent.span`
+font-size: 18px;
+font-weight: 700;
+line-height: 18px;
+letter-spacing: 4px;
+text-align: center;
+`
+
+
 const viewOptions = ["Populares", "Mis Peliculas"]
 
 export default function CustomizedMenus() {
@@ -65,19 +82,16 @@ export default function CustomizedMenus() {
   return (
     <div>
       <Button
-        id="demo-customized-button"
-        aria-controls={open ? 'demo-customized-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
         variant="contained"
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{marginBottom: "1rem"}}
       >
-        {`Ver: ${viewOptions[selectedIndex]}`}
+        <ViewText>Ver:</ViewText>
+        <OptionText>{viewOptions[selectedIndex]}</OptionText>
       </Button>
      
-
       <StyledMenu
         anchorEl={anchorEl}
         open={open}

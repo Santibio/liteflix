@@ -32,6 +32,17 @@ const theme = createTheme({
         },
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          "&.MuiPaper-root": {
+            width: "100%",
+            backgroundColor: "#242424",
+            color: "#fff"
+          },
+        },
+      },
+    },
   },
 });
 
