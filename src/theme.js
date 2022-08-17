@@ -15,6 +15,24 @@ const theme = createTheme({
       contrastText: "#000",
     },
   },
+  components: {
+    // Name of the component
+    MuiButton: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          backgroundColor: "transparent",
+          "&:active": {
+            backgroundColor: "transparent",
+          },
+          "&:hover": {
+            backgroundColor: "transparent",
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

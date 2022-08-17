@@ -33,7 +33,6 @@ div {
 
 
 const NavbarButton = ({isOpen,setIsOpen}) => {
-  console.log("open: ", isOpen);
   return (
     <NavbarButtonContainer open={isOpen} onClick={()=> setIsOpen(!isOpen)}>
         <div />
