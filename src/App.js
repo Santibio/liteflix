@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "./layouts/Header";
 import Main from "./layouts/Main";
+import AddMovie from './layouts/AddMovie/AddMovie'
 import bgImage from './assets/images/background.webp'
 
 const MainContainer = styled.div`
@@ -20,6 +21,7 @@ function App() {
     <MainContainer bgImage={bgImage}>
       <Header />
       <Main/>
+      <AddMovie/>
     </MainContainer>
   );
 }
