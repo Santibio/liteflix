@@ -21,9 +21,9 @@ const CustomButton = styled(Button)`
   }
 `;
 
-const MainButton = ({variant,children, startIcon}) => {
+const MainButton = ({variant,children, startIcon, onClick}) => {
   return (
-    <CustomButton variant={variant} startIcon={startIcon}>{children}</CustomButton>
+    <CustomButton variant={variant} startIcon={startIcon} onClick={onClick}>{children}</CustomButton>
   )
 }
 

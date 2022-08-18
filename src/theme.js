@@ -5,7 +5,7 @@ const theme = createTheme({
     primary: {
       light: "#757ce8",
       main: "#ffffff",
-      dark: "#002884",
+      dark: "#242424",
       contrastText: "#fff",
     },
     secondary: {
@@ -38,7 +38,7 @@ const theme = createTheme({
           "&.MuiPaper-root": {
             width: "100%",
             backgroundColor: "#242424",
-            color: "#fff"
+            color: "#fff",
           },
         },
       },

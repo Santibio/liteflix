@@ -7,6 +7,8 @@ import theme from "./theme";
 import { Provider } from "react-redux";
 import store from "./store/index";
 import "./index.css";
+import "@fontsource/bebas-neue" 
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

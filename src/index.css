@@ -1,13 +1,8 @@
-@font-face {
-  font-family: "Bebas Neue";
-  src: url("./assets/fonts/BebasNeue-Regular.woff");
-  font-weight: normal;
-  font-style: normal;
+
+* {
+  font-family: "Bebas Neue" !important;
 }
+
 body {
   background-color: #242424 !important;
-}
-* {
-  box-sizing: border-box;
-  font-family: "Bebas Neue" !important;
 }
