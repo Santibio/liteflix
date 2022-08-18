@@ -41,7 +41,7 @@ const Navbar = () => {
     >
       <List sx={{ marginTop: "4rem"}}>
         {navbarOptions.map((text, index) => (
-          <ListItem key={text} >
+          <ListItem key={text} onClick={()=>dispatch(closeModal())} >
               <ListItemText primary={text} />
           </ListItem>
         ))}

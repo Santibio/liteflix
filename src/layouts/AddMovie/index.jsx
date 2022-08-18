@@ -13,7 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const AddMovie = () => {
   const dispatch = useDispatch()
   const {isOpen} = useSelector((state) => state.addMovieModal)
-  
+
   return (
     <Dialog
         fullScreen

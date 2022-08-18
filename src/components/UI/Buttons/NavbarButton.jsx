@@ -26,7 +26,7 @@ div {
     transform-origin: 1px;
 
      :first-child {
-      transform: ${({ open }) => open ? 'rotate(45deg) scaleX(0.65)' : 'rotate(0)'};
+      transform: ${({ open }) => open ? 'rotate(45deg) scaleX(0.64)' : 'rotate(0)'};
     }
 
     :nth-child(2) {
