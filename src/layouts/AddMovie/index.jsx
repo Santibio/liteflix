@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from 'react-redux'
 import { closeModal } from '../../store/addMovieModalSlice'
 import MainButton from '../../components/UI/Buttons/Button';
 import { Box } from '@mui/system';
+import DragDrop from '../../components/DragDrop';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -31,6 +32,9 @@ const AddMovie = () => {
        <Grid container spacing={3} textAlign='center'>
           <Grid item xs={12} >
              <Typography color="secondary">Agregar Pelicula</Typography>
+          </Grid>
+          <Grid item xs={12} >
+             <DragDrop/>
           </Grid>
           <Grid item xs={12} >
              <MainButton variant="contained" onClick={()=> dispatch(closeModal())}>Subir Pelicula</MainButton>
