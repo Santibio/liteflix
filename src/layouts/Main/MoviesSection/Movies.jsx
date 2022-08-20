@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import Movie1 from '../../../assets/images/img1.webp'
@@ -6,6 +7,10 @@ import Movie2 from '../../../assets/images/img2.webp'
 import Movie3 from '../../../assets/images/img3.webp'
 import Movie4 from '../../../assets/images/img4.webp'
 import Movie from '../../../components/Movie'
+
+import { useDispatch } from 'react-redux'
+import { getuserMovies } from '../../../store/userMoviesSlice'
+import { getFeaturedMovieRequest } from '../../../store/apiMoviesSlice'
 
 
 const moviesArray = [
@@ -25,9 +30,20 @@ margin-bottom: 2rem;
 `
 
 const Movies = () => {
+  const dispatch = useDispatch()
+  const {userMovies} = useSelector((state) => state.userMovies)
+  console.log("userMovies: ", userMovies);
+
+
+  useEffect(()=>{
+    dispatch(getuserMovies())
+    dispatch(getFeaturedMovieRequest())
+  },[dispatch])
+
+
   return (
     <MoviesContainer>
-        {moviesArray.map(({picture, title, rating,year })=>(
+        {userMovies.map(({picture, title, rating,year })=>(
         <Movie 
         key={title}
          picture={picture} 
