@@ -2,9 +2,12 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
+
+
+
 const CustomButton = styled(Button)`
-  background-color: #242424;
-  color: #fff;
+  background-color: ${({custombg})=> custombg || "#242424" } ;
+  color:  ${({customcolortext})=> customcolortext || "#fff" } ;
   height: 56px;
   width: 248px;
   border-radius: 0px;
@@ -19,12 +22,21 @@ const CustomButton = styled(Button)`
   :hover {
     background-color: #242424;
   }
+ 
 `;
 
-const MainButton = ({variant,children, startIcon, onClick}) => {
+const MainButton = ({ customcolortext, custombg, variant,children, startIcon, onClick , ...props}) => {
+
   return (
-    <CustomButton variant={variant} startIcon={startIcon} onClick={onClick}>{children}</CustomButton>
+    <CustomButton 
+    variant={variant} 
+    startIcon={startIcon} 
+    onClick={onClick} 
+    custombg={custombg} 
+    customcolortext={customcolortext}
+    {...props}>{children}</CustomButton>
   )
 }
 
-export default MainButton
+
+export default MainButton;
