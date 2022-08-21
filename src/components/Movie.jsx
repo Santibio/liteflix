@@ -122,6 +122,9 @@ transition: background-image 1s ease-in-out;
     letter-spacing: 2px;
     text-align: left;
 }
+.rating{
+    margin-top: 3px;
+}
 
 `
 
@@ -145,7 +148,7 @@ const Movie = ({picture, title, rating, year}) => {
             <div className='rating-year-container'>
                  <div className='rating-container'>
                     <Star/>
-                     <span className='rating'>{rating}</span>
+                     <span className='rating'>{rating || "---"}</span>
                 </div>
                 <span className='year'>{year}</span>
             </div>
