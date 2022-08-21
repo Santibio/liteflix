@@ -4,13 +4,15 @@ import BoldText from '../../../components/UI/Text/BoldText'
 import LightText from '../../../components/UI/Text/LightText'
 import TitleText from '../../../components/UI/Text/TitleText'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
 const TitleContainer = styled.div`
 display: flex;
 flex-direction: column;
 `
 
-const index = () => {
+const Index = () => {
+  const { featuredMovie } = useSelector((state) => state.apiMovies);
   return (
     <TitleContainer>
     <Typography textAlign="center" color="primary"  component="div">
@@ -19,11 +21,11 @@ const index = () => {
     </Typography>
     <Typography color="secondary" component="div">
         <TitleText>
-        LA CASA DE PAPEL
+        {featuredMovie.title}
         </TitleText>
     </Typography>
     </TitleContainer>
   )
 }
 
-export default index
+export default Index

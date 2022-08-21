@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as API from "../api";
+import { featuredMovieMapper, popularMoviesMapper } from "../utils/requestMapper";
 
 const initialState = {
   featuredMovie: {},
@@ -11,7 +12,6 @@ export const apiMovies = createSlice({
   initialState,
   reducers: {
     getFeaturedMovie: (state, action) => {
-      console.log("action: ", action.payload);
       state.featuredMovie = action.payload;
     },
     getPopularMovies: (state, action) => {
@@ -26,7 +26,15 @@ export const { getFeaturedMovie, getPopularMovies } = apiMovies.actions;
 export const getFeaturedMovieRequest = () => async (dispatch) => {
   const { data } = await API.getFeaturedMovie();
   const featureMovie = data.results[0]
-  dispatch(getFeaturedMovie(featureMovie));
+  const mappedFeatureMovie = featuredMovieMapper(featureMovie);
+  dispatch(getFeaturedMovie(mappedFeatureMovie));
+};
+
+export const getPopularMoviesRequest = () => async (dispatch) => {
+  const { data } = await API.getPopularMovies();
+  const popularMovies = data.results
+  const mappedPopularMovies = popularMoviesMapper(popularMovies);
+  dispatch(getPopularMovies(mappedPopularMovies));
 };
 
 export default apiMovies.reducer;

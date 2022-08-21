@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React from 'react';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -60,18 +60,18 @@ text-align: center;
 `
 
 
-const viewOptions = ["Populares", "Mis Peliculas"]
-
-export default function CustomizedMenus() {
+export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOptions}) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+
   
   const open = Boolean(anchorEl);
+
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleMenuItemClick  = (event, index) => {
-      setSelectedIndex(index);
+    setSelectedIndex(index);
     setAnchorEl(null);
   };
 

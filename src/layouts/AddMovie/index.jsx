@@ -6,6 +6,7 @@ import MainButton from '../../components/UI/Buttons/Button';
 import { Box, Stack } from '@mui/system';
 import DragDrop from '../../components/DragDrop';
 import ProgressBar from '../../components/ProgressBar';
+import { getuserMovies } from '../../store/userMoviesSlice';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -95,6 +96,7 @@ const AddMovie = () => {
         }
 
     setSuccess(true)
+     dispatch(getuserMovies())
 
   }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ViewDropDown from './ViewDropDown'
 import styled from 'styled-components'
 import Movies from './Movies'
@@ -11,14 +11,16 @@ align-items: center;
 flex-direction: column;
 margin-top: 5rem;`
 
-const index = () => {
-  
+const viewOptions = ["Populares", "Mis Peliculas"]
+
+const Index = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <MovieSectionContainer>
-    <ViewDropDown/>
-    <Movies/>
+    <ViewDropDown selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} viewOptions={viewOptions}/>
+    <Movies selectedIndex={selectedIndex} viewOptions={viewOptions}/>
     </MovieSectionContainer>
   )
 }
 
-export default index
+export default Index

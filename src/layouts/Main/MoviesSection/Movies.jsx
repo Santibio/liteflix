@@ -9,8 +9,8 @@ import Movie4 from '../../../assets/images/img4.webp'
 import Movie from '../../../components/Movie'
 
 import { useDispatch } from 'react-redux'
-import { getuserMovies } from '../../../store/userMoviesSlice'
-import { getFeaturedMovieRequest } from '../../../store/apiMoviesSlice'
+import { getuserMovies, get } from '../../../store/userMoviesSlice'
+import { getFeaturedMovieRequest, getPopularMoviesRequest } from '../../../store/apiMoviesSlice'
 
 
 const moviesArray = [
@@ -29,27 +29,40 @@ gap: 1rem;
 margin-bottom: 2rem;
 `
 
-const Movies = () => {
+
+const Movies = ({selectedIndex, viewOptions}) => {
   const dispatch = useDispatch()
   const {userMovies} = useSelector((state) => state.userMovies)
-  console.log("userMovies: ", userMovies);
-
+  const {popularMovies} = useSelector((state) => state.apiMovies)
 
   useEffect(()=>{
     dispatch(getuserMovies())
-    dispatch(getFeaturedMovieRequest())
+    dispatch(getPopularMoviesRequest())
   },[dispatch])
 
 
+  let selectedMovies = []
+
+  switch(viewOptions[selectedIndex]){
+    case "Populares":
+      selectedMovies = popularMovies
+      break
+    case "Mis Peliculas":
+      selectedMovies = userMovies
+      break
+    default:
+      break
+  }
+ 
   return (
     <MoviesContainer>
-        {userMovies.map(({picture, title, rating,year })=>(
+        {selectedMovies.map(({id,picture, title, rating,year })=>(
         <Movie 
-        key={title}
-         picture={picture} 
-         title={title}
-          rating={rating} 
-          year={year}/>
+        key={id}
+        picture={picture} 
+        title={title}
+        rating={rating} 
+        year={year}/>
           ))}
     </MoviesContainer>
   )
