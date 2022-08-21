@@ -15,7 +15,6 @@ export const apiMovies = createSlice({
       state.featuredMovie = action.payload;
     },
     getPopularMovies: (state, action) => {
-      console.log("action: ", action);
       state.popularMovies = action.payload;
     },
   },
