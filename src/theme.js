@@ -94,7 +94,6 @@ const theme = createTheme({
       styleOverrides: {
         paper: {
           "&.MuiPaper-root": {
-            width: "100%",
             backgroundColor: "#242424",
             color: "#fff",
           },
