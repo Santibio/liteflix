@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import useWindowSize from '../../../hooks/useWindowSize'
 
 const NavbarButtonStyle = styled.div`
   display: ${({show})=> show? "flex" : "none"};
@@ -35,19 +36,22 @@ div {
     }
 
     :nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
-      width: 17px
+      transform: ${({ open, directionChange }) => open ? directionChange && open ?'rotate(-45deg) translate(-7px, -7px)' : "rotate(-45deg)" : 'rotate(0)'};
+      width: 17px;
+      right: ${({directionChange})=> directionChange ? "-10px" : "0"};
     }
 
     }
 `
 
 
-const NavbarButton = ({ isOpen,setIsOpen, show, onClick}) => {
+const NavbarButton = ({ isOpen, show, onClick}) => {
+  const { width } = useWindowSize()
 
+  const stylePosition= width>= 900 ? { float: "right",paddingRight: "1rem"} : {}
   return (
-    <div >
-    <NavbarButtonStyle open={isOpen} onClick={onClick} show={show}>
+    <div style={stylePosition}>
+    <NavbarButtonStyle open={isOpen} onClick={onClick} show={show} directionChange={width>= 900}>
         <div />
         <div />
         <div />

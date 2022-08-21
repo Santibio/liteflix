@@ -3,7 +3,7 @@ import NotificacionIcon from '../../components/UI/Icons/Notificación.jsx'
 
 const Notification = () => {
   return (
-    <div style={{marginTop: "5px"}}>
+    <div style={{ textAlign: "center", marginTop: "10px"}}>
         <NotificacionIcon color='primary' size='large'/>
     </div>
   )
