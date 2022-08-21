@@ -127,8 +127,8 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
         endIcon={<KeyboardArrowDownIcon />}
         sx={{marginBottom: "1rem"}}
       >
-        <ViewText>Ver:</ViewText>
-        <OptionText>{viewOptions[selectedIndex]}</OptionText>
+        <ViewText>{'Ver: \u00A0'}</ViewText>
+        <OptionText>{ viewOptions[selectedIndex]}</OptionText>
       </Button>
       {width >= 900 ? <StyledMenuLarge
         anchorEl={anchorEl}

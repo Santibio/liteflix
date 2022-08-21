@@ -7,9 +7,9 @@ import AddMovie from './AddMovie'
 import Notification from './Notification'
 
 
-const Header = () => {
+const Header = React.forwardRef((props,ref) => {
   return (
-    <Grid container p={{xs: 2, md: 4}} alignItems="center" sx={{margin: "auto"}}>
+    <Grid ref={ref} container p={{xs: 2, md: 4}} alignItems="center" sx={{margin: "auto"}}>
       <Grid item xs={4} md={1} order={{xs: 1, md: 2}} sx={{zIndex: "1500"}}>
         <Navbar/>
       </Grid>
@@ -27,6 +27,6 @@ const Header = () => {
       </Grid>
     </Grid>
   )
-}
+})
 
 export default Header

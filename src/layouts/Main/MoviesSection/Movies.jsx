@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import Movie from '../../../components/Movie'
-
+import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch } from 'react-redux'
 import { getuserMovies } from '../../../store/userMoviesSlice'
 import {  getPopularMoviesRequest } from '../../../store/apiMoviesSlice'
+import { Typography } from '@mui/material'
 
 
 
@@ -31,7 +32,7 @@ const Movies = ({selectedIndex, viewOptions}) => {
   },[dispatch])
 
 
-  let selectedMovies = []
+  let selectedMovies
 
   switch(viewOptions[selectedIndex]){
     case "Populares":
@@ -43,17 +44,19 @@ const Movies = ({selectedIndex, viewOptions}) => {
     default:
       break
   }
+
+  if(!selectedMovies) return <CircularProgress/>
  
   return (
     <MoviesContainer>
-        {selectedMovies.map(({id,picture, title, rating,year }, index)=>(
+        {selectedMovies.length? selectedMovies.map(({id,picture, title, rating,year }, index)=>(
         <Movie 
         key={id || index}
         picture={picture} 
         title={title}
         rating={rating} 
         year={year}/>
-          ))}
+          )) : <Typography color="primary" variant="h6">No se encuentran peliculas</Typography>}
     </MoviesContainer>
   )
 }

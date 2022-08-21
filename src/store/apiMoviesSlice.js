@@ -4,7 +4,7 @@ import { featuredMovieMapper, popularMoviesMapper } from "../utils/requestMapper
 
 const initialState = {
   featuredMovie: {},
-  popularMovies: [],
+  popularMovies: null,
 };
 
 export const apiMovies = createSlice({

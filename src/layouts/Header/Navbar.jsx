@@ -12,6 +12,7 @@
 import { useDispatch } from 'react-redux';
 import { openModal, closeModal } from '../../store/addMovieModalSlice'
 import useWindowSize from '../../hooks/useWindowSize';
+import Grow from '@mui/material/Grow';
 
 const navbarOptions= ['inicio', 'series', 'películas', 'agregadas recientemente', 'populares', "mis películas", "mi lista"]
 
@@ -47,11 +48,16 @@ const Navbar = () => {
              <NavbarButton  isOpen={open} show />
           </ListItem>
         {navbarOptions.map((text, index) => (
+      <Grow in={open}   style={{ transformOrigin: '0 0 0' }}
+          {...(open ? { timeout: index  * 200 } : {})}>
           <ListItem key={text} onClick={()=>dispatch(closeModal())} >
               <ListItemText primary={text} />
           </ListItem>
+        </Grow>
         ))}
       </List>
+         <Grow in={open}   style={{ transformOrigin: '0 0 0' }}
+          {...(open ? { timeout: 1000 } : {})}>
       <List>
          <ListItem key={'add'} disablePadding>
             <ListItemButton onClick={()=>dispatch(openModal())}>
@@ -62,11 +68,16 @@ const Navbar = () => {
             </ListItemButton>
           </ListItem>
       </List>
+          </Grow>
+         <Grow in={open}   style={{ transformOrigin: '0 0 0' }}
+          {...(open ? { timeout: 1000 } : {})}>
       <List>
+
          <ListItem key={'closeSesion'} >
             <ListItemText primary={"Cerrar Sesión"} />
           </ListItem>
       </List>
+          </Grow>
        
     </Box>
   );

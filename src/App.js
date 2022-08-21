@@ -2,11 +2,12 @@ import styled from "styled-components";
 import Header from "./layouts/Header";
 import Main from "./layouts/Main";
 import AddMovie from "./layouts/AddMovie";
-
+import Slide from "@mui/material/Slide";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { getFeaturedMovieRequest } from "./store/apiMoviesSlice";
 import { Grid } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const MainContainer = styled.div`
   height: 100vh;
@@ -23,18 +24,37 @@ const MainContainer = styled.div`
 function App() {
   const dispatch = useDispatch();
   const { featuredMovie } = useSelector((state) => state.apiMovies);
-  
+  const containerRef = useRef(null);
+
   useEffect(() => {
     dispatch(getFeaturedMovieRequest());
   }, [dispatch]);
   return (
-    <MainContainer bgImage={featuredMovie.picture}>
-      <Grid container sx={{ maxWidth: "1657px" }} margin="auto">
-        <Header />
-        <Main />
-        <AddMovie />
-      </Grid>
-    </MainContainer>
+    <>
+      {featuredMovie ? (
+        <MainContainer bgImage={featuredMovie.picture}>
+          <Grid
+            container
+            sx={{ maxWidth: "1657px" }}
+            margin="auto"
+            ref={containerRef}
+          >
+            <Slide
+              direction="down"
+              in={true}
+              timeout={1000}
+              container={containerRef.current}
+            >
+              <Header />
+            </Slide>
+            <Main />
+            <AddMovie />
+          </Grid>
+        </MainContainer>
+      ) : (
+        <CircularProgress />
+      )}
+    </>
   );
 }
 

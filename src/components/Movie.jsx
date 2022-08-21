@@ -16,7 +16,7 @@ background-image: ${props => `url(${props.bgImage})`};
 background-size: cover;
 background-position: center;
 border-radius: 4px;
-transition: background-image 1s ease-in-out;
+
 
  @media (min-width: 900px) {
     width: 220px;
@@ -37,7 +37,7 @@ transition: background-image 1s ease-in-out;
     align-items: center;
     flex-direction: column;
     color: #fff;
-    transition: opacity 150ms ease-in-out;
+    transition: opacity 200ms ease-in-out;
 }
 
 .play-container{
@@ -76,7 +76,7 @@ transition: background-image 1s ease-in-out;
     position: absolute;
     top: 200px;
     left: 25px;
-    transition: top 250ms ease;
+    transition: top 350ms ease;
     width: 85%;
 }
 
