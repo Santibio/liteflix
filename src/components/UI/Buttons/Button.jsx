@@ -19,8 +19,9 @@ const CustomButton = styled(Button)`
   .MuiButton-startIcon{
     margin-top: -3px;
   }
-  :hover {
-    background-color: #242424;
+  &:hover {
+    background-color:  ${({custombg})=> custombg || "#242424" } ;
+    color:  ${({customcolortext})=> customcolortext || "#fff" } ;
   }
  
 `;
