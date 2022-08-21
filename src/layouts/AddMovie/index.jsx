@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Dialog, FormControl, Grid, Input, InputLabel, styled, Slide, Typography } from '@mui/material';
+import React, { useState } from 'react'
+import { Dialog, FormControl, Input, styled, Slide, Typography } from '@mui/material';
 import { useDispatch, useSelector} from 'react-redux'
 import { closeModal } from '../../store/addMovieModalSlice'
 import MainButton from '../../components/UI/Buttons/Button';

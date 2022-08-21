@@ -1,22 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
-import { Button, Typography } from '@mui/material';
-
-const progressState={
-    error: {
-        progressText: "¡ERROR! no se pudo cargar la película",
-        color: "error"
-    },
-    loading:{
-         progressText: "Cargando",
-         color: "primary"
-    },
-    success:{
-        progressText: "Cargando",
-         color: "primary"
-    },
-}
+import {  Typography } from '@mui/material';
 
 const ProgressBar = ({hasError, setIsProgressbarOpen, setProgress, progress})=> {
  
@@ -37,7 +22,7 @@ const ProgressBar = ({hasError, setIsProgressbarOpen, setProgress, progress})=> 
     return () => {
       clearInterval(timer);
     };
-  },[hasError,progress]);
+  },[hasError, progress, setProgress]);
 
   let texts={}
   switch(state){
