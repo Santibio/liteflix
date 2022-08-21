@@ -4,7 +4,7 @@ import avatarImage from '../../assets/images/avatar.webp'
 
 const ProfilePicture = () => {
   return (
-    <Avatar alt="Avatar" src={avatarImage} sx={{zIndex: "1500"}}/>
+    <Avatar alt="Avatar" src={avatarImage} sx={{ float: {xs:'right',md: 'left'}}}/>
   )
 }
 

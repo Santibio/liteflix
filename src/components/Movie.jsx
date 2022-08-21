@@ -1,7 +1,7 @@
 import React from 'react'
 import PlayButton from './UI/Buttons/PlayButton'
 import styled from 'styled-components'
-import Star from './UI/Decoration/Star'
+import Star from './UI/Icons/Star'
 
 
 const MovieStyle= styled.div`

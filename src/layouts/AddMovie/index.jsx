@@ -109,15 +109,18 @@ const AddMovie = () => {
       >
         <Box  
         sx={{
-        paddingTop: "9rem",
         width: "100%",
         height: "100%",
         backgroundColor: 'primary.dark',
+        display: 'flex',
+        justifyContent: "center",
+        alignItems: 'center',
+        padding: "0 1rem"
       }}>
        <Stack  spacing={12} alignItems="center">
         {!isSuccess? 
         <>
-        <Typography color="secondary" >Agregar Pelicula</Typography>
+        <Typography color="secondary" variant='h5'>Agregar Película</Typography>
           {isProgressbarOpen ?  
           <ProgressBar
            hasError={hasError} 
@@ -148,14 +151,16 @@ const AddMovie = () => {
              </Stack>
              </> : 
              <>
-               <Typography color="primary" >¡Felicitaciones!</Typography>
-               <Typography color="primary" >{`${title} fue correctamente subida.`}</Typography>
-                <MainButton 
-             disabled={!file || !title.trim().length || progress < 100} 
-             custombg="#FFF" 
-             customcolortext="#000" 
-             variant="contained" 
-            onClick={restartValues}>Ir a home</MainButton>
+               <Typography color="primary" variant="h4">¡Felicitaciones!</Typography>
+               <Typography color="primary" variant='h6' textAlign="center" >{`${title} fue correctamente subida.`}</Typography>
+               <MainButton 
+                 disabled={!file || !title.trim().length || progress < 100} 
+                 custombg="#FFF" 
+                 customcolortext="#000" 
+                 variant="contained" 
+                 onClick={restartValues}>
+                   Ir a home
+               </MainButton>
              </>
              }
           

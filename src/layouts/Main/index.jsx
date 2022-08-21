@@ -2,20 +2,21 @@ import React from 'react'
 import TitleSection from './TitleSection'
 import MoviesSection from './MoviesSection'
 import ButtonsSection from './ButtonsSection'
-import styled from 'styled-components'
+import Grid from '@mui/material/Grid';
 
-const Main = styled.main`
-margin-top: 15rem;   
-`
 
 
 const index = () => {
   return (
-    <Main>
+    <Grid container px={{xs: 2, md: 4}} >
+      <Grid item xs={12} md={8}>
         <TitleSection/>
         <ButtonsSection/>
+      </Grid>
+      <Grid item  xs={12} md={4}>
         <MoviesSection/>
-    </Main>
+      </Grid>
+    </Grid>
   )
 }
 

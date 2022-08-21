@@ -2,22 +2,30 @@ import React from 'react'
 import ProfilePicture from './ProfilePicture'
 import Navbar from './Navbar'
 import Title from './Title'
-import styled from 'styled-components'
+import Grid from '@mui/material/Grid';
+import AddMovie from './AddMovie'
+import Notification from './Notification'
 
-const HeaderContainer = styled.header`
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem;
-`
 
 const Header = () => {
   return (
-    <HeaderContainer>
-    <Navbar/>
-    <Title/>
-    <ProfilePicture/>
-    </HeaderContainer>
+    <Grid container p={{xs: 2, md: 4}} alignItems="center" sx={{margin: "auto"}}>
+      <Grid item xs={4} md={1} order={{xs: 1, md: 2}} sx={{zIndex: "1500"}}>
+        <Navbar/>
+      </Grid>
+      <Grid item  xs={4} md={1} order={{xs: 2, md: 1}} sx={{zIndex: "1500"}}>
+        <Title/>
+      </Grid>
+      <Grid item  xs={4} md={1} order={{xs: 3, md: 3}} sx={{zIndex: "1500"}}>
+        <ProfilePicture/>
+      </Grid>
+      <Grid item   md={8} order={{xs: 3, md: 1}} sx={{ display: { md: 'block', xs: 'none' }, zIndex: "1500" }} >
+        <AddMovie/>
+      </Grid>
+      <Grid item   md={1} order={{xs: 3, md: 2}} sx={{ display: { md: 'block', xs: 'none' }, zIndex: "1500" }}>
+        <Notification/>
+      </Grid>
+    </Grid>
   )
 }
 

@@ -15,6 +15,56 @@ const theme = createTheme({
       contrastText: "#000",
     },
   },
+  typography: {
+    h1: {
+      fontSize: "76px",
+      fontWeight: 700,
+      lineHeight: "78px",
+      letterSpacing: "12px",
+    },
+    h2: {
+      fontSize: "28px",
+      fontWeight: 400,
+      lineHeight: "28px",
+      letterSpacing: "4px",
+    },
+    h2Bold: {
+      fontSize: "28px",
+      fontWeight: 700,
+      lineHeight: "28px",
+      letterSpacing: "4px",
+    },
+    h3: {
+      fontSize: "20px",
+      fontWeight: 400,
+      lineHeight: "20px",
+      letterSpacing: "4px",
+    },
+    h3Bold: {
+      fontSize: "20px",
+      fontWeight: "700",
+      lineHeight: "20px",
+      letterSpacing: "4px",
+    },
+    h4: {
+      fontSize: "24px",
+      fontWeight: 700,
+      lineHeight: "26px",
+      letterSpacing: "4px",
+    },
+    h5: {
+      fontSize: "24px",
+      fontWeight: 700,
+      lineHeight: "22px",
+      letterSpacing: "4px",
+    },
+    h6: {
+      fontSize: "20px",
+      fontWeight: 400,
+      lineHeight: "32px",
+      letterSpacing: "4px",
+    },
+  },
   components: {
     MuiButton: {
       styleOverrides: {

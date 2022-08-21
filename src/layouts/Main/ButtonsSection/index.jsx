@@ -3,22 +3,16 @@ import MainButton from '../../../components/UI/Buttons/Button'
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import styled from 'styled-components'
+import Grid from '@mui/material/Grid';
 
-const ButtonsContainer = styled.div`
-display:flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-gap: 1rem;
-margin-top: 2rem;
-
-`
 const ButtonsSection = () => {
   return (
-    <ButtonsContainer>
-    <MainButton variant="contained" startIcon={<PlayArrowOutlinedIcon />}>Reproducir</MainButton>
-    <MainButton variant="outlined" startIcon={<AddOutlinedIcon />}>Mi lista</MainButton>
-    </ButtonsContainer>
+    <Grid container spacing={2} mt={1}>
+      <Grid item xs={12} md={6} gap={2} display="flex" justifyContent="center" alignItems="center" sx={{ flexDirection: {xs:"column", md: "row"}}}>
+       <MainButton variant="contained" startIcon={<PlayArrowOutlinedIcon />}>Reproducir</MainButton>
+        <MainButton variant="outlined" startIcon={<AddOutlinedIcon />}>Mi lista</MainButton>
+      </Grid>
+    </Grid>
   )
 }
 

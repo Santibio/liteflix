@@ -16,6 +16,8 @@ const NavbarButtonContainer = styled.div`
   &:focus {
     outline: none;
   }
+
+  
 div {
     width: 27px;
     height: 1px;

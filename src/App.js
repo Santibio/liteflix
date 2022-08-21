@@ -6,6 +6,7 @@ import AddMovie from "./layouts/AddMovie";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getFeaturedMovieRequest } from "./store/apiMoviesSlice";
+import { Grid } from "@mui/material";
 
 const MainContainer = styled.div`
   height: 100vh;
@@ -28,9 +29,11 @@ function App() {
   }, [dispatch]);
   return (
     <MainContainer bgImage={featuredMovie.picture}>
+      <Grid container sx={{maxWidth: "1600px"}} margin='auto'>
       <Header />
       <Main />
       <AddMovie />
+      </Grid>
     </MainContainer>
   );
 }
