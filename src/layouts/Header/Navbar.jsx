@@ -11,11 +11,13 @@
  import NavbarButton from '../../components/UI/Buttons/NavbarButton'
 import { useDispatch } from 'react-redux';
 import { openModal, closeModal } from '../../store/addMovieModalSlice'
+import useWindowSize from '../../hooks/useWindowSize';
 
 const navbarOptions= ['inicio', 'series', 'películas', 'agregadas recientemente', 'populares', "mis películas", "mi lista"]
 
 const Navbar = () => {
   const dispatch = useDispatch()
+  const { width} = useWindowSize()
 
   const [open, setOpen] = useState(false);
 
@@ -32,13 +34,18 @@ const Navbar = () => {
     setOpen(state);
   };
 
+  const boxWidth = width >= 900 ? 761 : 2500
+
   const list = () => (
     <Box
-      sx={{ width: "100% !important" }}
       onClick={toggleDrawer( false)}
       onKeyDown={toggleDrawer(false)}
+      sx={{ width:  boxWidth, paddingLeft: {md: "2rem"} }}
     >
-      <List sx={{ marginTop: "4rem"}}>
+      <List sx={{ marginTop: {xs: "1rem", md:"2rem"}, zIndex: 2000 }}>
+         <ListItem key={"1"} onClick={()=>dispatch(closeModal())} sx={{marginBottom: "2rem"}} >
+             <NavbarButton  isOpen={open} show />
+          </ListItem>
         {navbarOptions.map((text, index) => (
           <ListItem key={text} onClick={()=>dispatch(closeModal())} >
               <ListItemText primary={text} />
@@ -67,15 +74,15 @@ const Navbar = () => {
   return (
 
         <>
-          <NavbarButton  setIsOpen={setOpen} isOpen={open}/>
+          <NavbarButton  setIsOpen={setOpen} isOpen={open} show={!open} onClick={()=> setOpen(!open)}/>
           <SwipeableDrawer
-            anchor={'left'}
+            anchor={width >= 900 ? 'right':'left'}
             open={open}
             onClose={toggleDrawer( false)}
             onOpen={toggleDrawer(true)}
             sx={{zIndex: "1300"}}
           >
-            {list("left")}
+            {list(width >= 900 ? 'right':'left')}
           </SwipeableDrawer>
     </>
   );

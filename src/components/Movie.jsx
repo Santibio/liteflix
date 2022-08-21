@@ -6,16 +6,22 @@ import Star from './UI/Icons/Star'
 
 const MovieStyle= styled.div`
 position: relative;
-width: 350px;
+width: 327px;
 overflow: hidden;
-height: 194px;
+height: 172px;
 display: flex;
 justify-content: center;
 align-items: center;
 background-image: ${props => `url(${props.bgImage})`};
 background-size: cover;
 background-position: center;
+border-radius: 4px;
 transition: background-image 1s ease-in-out;
+
+ @media (min-width: 900px) {
+    width: 220px;
+    height: 146px
+  }
 
 .movie-img{
     width: 100%;
@@ -75,7 +81,12 @@ transition: background-image 1s ease-in-out;
 }
 
 &:hover .container-hover{
-    top: 100px;
+    top: 90px;
+
+    @media (min-width: 900px) {
+     top: 50px;
+     left: 10px
+  }
 }
 
 .info-play-container-hover{

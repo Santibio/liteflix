@@ -29,10 +29,10 @@ function App() {
   }, [dispatch]);
   return (
     <MainContainer bgImage={featuredMovie.picture}>
-      <Grid container sx={{maxWidth: "1600px"}} margin='auto'>
-      <Header />
-      <Main />
-      <AddMovie />
+      <Grid container sx={{ maxWidth: "1657px" }} margin="auto">
+        <Header />
+        <Main />
+        <AddMovie />
       </Grid>
     </MainContainer>
   );

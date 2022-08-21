@@ -1,25 +1,18 @@
 import React, { useState } from 'react'
 import ViewDropDown from './ViewDropDown'
-import styled from 'styled-components'
 import Movies from './Movies'
+import Grid from '@mui/material/Grid';
 
-
-const MovieSectionContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-margin-top: 5rem;`
 
 const viewOptions = ["Populares", "Mis Peliculas"]
 
 const Index = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
-    <MovieSectionContainer>
+    <Grid container flexDirection="column" alignItems={{xs:"center"}} mt={{xs: '5rem', md: 0}}>
     <ViewDropDown selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} viewOptions={viewOptions}/>
     <Movies selectedIndex={selectedIndex} viewOptions={viewOptions}/>
-    </MovieSectionContainer>
+    </Grid>
   )
 }
 

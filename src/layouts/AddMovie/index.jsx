@@ -7,6 +7,11 @@ import { Box, Stack } from '@mui/system';
 import DragDrop from '../../components/DragDrop';
 import ProgressBar from '../../components/ProgressBar';
 import { getuserMovies } from '../../store/userMoviesSlice';
+import toast, { Toaster } from 'react-hot-toast';
+import useWindowSize from '../../hooks/useWindowSize';
+import CloseIcon from '@mui/icons-material/Close';
+import Title from '../Header/Title';
+import IconButton from '@mui/material/IconButton';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -34,6 +39,7 @@ const CustomInput = styled(Input)`
 `
 const AddMovie = () => {
   const dispatch = useDispatch()
+  const {width } = useWindowSize()
   const {isOpen} = useSelector((state) => state.addMovieModal)
 
   const [title,setTitle] = useState("")
@@ -87,49 +93,57 @@ const AddMovie = () => {
   })
 
   const handleSubmit = ()=>{
-    const newMovie = {picture: file, title}
-    const moviesImages =  JSON.parse(localStorage.getItem("userMovies" ))
-        if(!Array.isArray(moviesImages)){
-          localStorage.setItem("userMovies", JSON.stringify([newMovie]))
-        }else{
-           localStorage.setItem("userMovies", JSON.stringify([...moviesImages,newMovie]))
-        }
+    try{
+      const newMovie = {picture: file, title}
+      const moviesImages =  JSON.parse(localStorage.getItem("userMovies" ))
+          if(!Array.isArray(moviesImages)){
+            localStorage.setItem("userMovies", JSON.stringify([newMovie]))
+          }else{
+             localStorage.setItem("userMovies", JSON.stringify([...moviesImages,newMovie]))
+          }
+  
+      setSuccess(true)
+      dispatch(getuserMovies())
 
-    setSuccess(true)
-     dispatch(getuserMovies())
+    } catch(e){
+      restartValues()
+      toast.error(e.message)
+    }
 
   }
 
   return (
+    <>
     <Dialog
-        fullScreen
+        fullScreen={width>= 900 ? false : true}
         open={isOpen}
         onClose={()=>dispatch(closeModal())}
         TransitionComponent={Transition}
-      >
+        maxWidth={'md'}
+        >
         <Box  
         sx={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: 'primary.dark',
-        display: 'flex',
-        justifyContent: "center",
-        alignItems: 'center',
-        padding: "0 1rem"
-      }}>
-       <Stack  spacing={12} alignItems="center">
+          width: {md:"730px"},
+          height: {xs: "100vh", md:"440px"},
+          backgroundColor: 'primary.dark',
+          display: 'flex',
+          justifyContent: "center",
+          alignItems: 'center',
+          padding: "1rem"
+        }}>
+       <Stack  spacing={{xs:12, md: 5}} alignItems="center" sx={{width: "100%"}}>
         {!isSuccess? 
         <>
         <Typography color="secondary" variant='h5'>Agregar Película</Typography>
           {isProgressbarOpen ?  
           <ProgressBar
-           hasError={hasError} 
-           setIsProgressbarOpen={setIsProgressbarOpen}
-           progress={progress}
-           setProgress={setProgress}
-           />
-           : <DragDrop handleChange={handleChange} setHasError={setHasError} /> 
-          }
+          hasError={hasError} 
+          setIsProgressbarOpen={setIsProgressbarOpen}
+          progress={progress}
+          setProgress={setProgress}
+          />
+          : <DragDrop handleChange={handleChange} setHasError={setHasError} /> 
+        }
          
           <FormControl variant="standard">
              <CustomInput 
@@ -147,13 +161,14 @@ const AddMovie = () => {
              customcolortext="#000" 
              variant="contained" 
              onClick={handleSubmit}>Subir Pelicula</MainButton>
-             <MainButton variant="outlined" onClick={restartValues}>Salir</MainButton>
+             {width <= 900 && <MainButton variant="outlined" onClick={restartValues}>Salir</MainButton>}
              </Stack>
              </> : 
              <>
+             {width >= 900 && <Title/>}
                <Typography color="primary" variant="h4">¡Felicitaciones!</Typography>
                <Typography color="primary" variant='h6' textAlign="center" >{`${title} fue correctamente subida.`}</Typography>
-               <MainButton 
+              <MainButton 
                  disabled={!file || !title.trim().length || progress < 100} 
                  custombg="#FFF" 
                  customcolortext="#000" 
@@ -165,10 +180,15 @@ const AddMovie = () => {
              }
           
         </Stack>
-       
-       
       </Box>
+         {width >= 900 && 
+         <IconButton  onClick={restartValues} sx={{ position: 'absolute', right: "1rem", top: "1rem"}}>
+          <CloseIcon color="primary"/>
+        </IconButton>}
       </Dialog>
+      <Toaster/>
+            </>
+      
   )
 }
 

@@ -19,7 +19,7 @@ const Header = () => {
       <Grid item  xs={4} md={1} order={{xs: 3, md: 3}} sx={{zIndex: "1500"}}>
         <ProfilePicture/>
       </Grid>
-      <Grid item   md={8} order={{xs: 3, md: 1}} sx={{ display: { md: 'block', xs: 'none' }, zIndex: "1500" }} >
+      <Grid item   md={8} order={{xs: 3, md: 1}} sx={{ display: { md: 'block', xs: 'none' } }} >
         <AddMovie/>
       </Grid>
       <Grid item   md={1} order={{xs: 3, md: 2}} sx={{ display: { md: 'block', xs: 'none' }, zIndex: "1500" }}>

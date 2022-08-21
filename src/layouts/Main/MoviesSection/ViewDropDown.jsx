@@ -8,15 +8,17 @@ import Check from '@mui/icons-material/Check';
 import { Slide, Typography } from '@mui/material';
 import { useState } from 'react';
 import styledComponent from 'styled-components'
+import useWindowSize from '../../../hooks/useWindowSize';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const TransitionUp = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const StyledMenu = styled((props) => (
+const StyledMenuSmall = styled((props) =>(
   <Menu
     elevation={0}
-    TransitionComponent={Transition}
+    TransitionComponent={TransitionUp}
+    
     {...props}
   />
 ))(({ theme }) => ({
@@ -29,6 +31,42 @@ const StyledMenu = styled((props) => (
     backgroundColor: "#242424",
     marginTop: theme.spacing(2),
     minWidth: "100%",
+    color: "#fff",
+    '& .MuiMenuItem-root': {
+      '& .MuiSvgIcon-root': {
+        fontSize: 18,
+        color: "#fff",
+      },
+      '&:active': {
+        backgroundColor: theme.palette.text.secondary,
+        color: "#fff"
+
+      },
+    },
+  },
+}));
+
+const StyledMenuLarge = styled((props) =>(
+  <Menu
+    elevation={0}
+   
+     anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'right',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'right',
+    }}
+    {...props}
+  />
+))(({ theme }) => ({
+  '& .MuiPaper-root': {
+    heigth: "200px",
+    borderRadius: 0,
+    backgroundColor: "#242424",
+    marginTop: theme.spacing(1),
+    minWidth: "241px",
     color: "#fff",
     '& .MuiMenuItem-root': {
       '& .MuiSvgIcon-root': {
@@ -61,6 +99,7 @@ text-align: center;
 
 
 export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOptions}) {
+  const { width} = useWindowSize()
   const [anchorEl, setAnchorEl] = useState(null);
 
   
@@ -91,8 +130,7 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
         <ViewText>Ver:</ViewText>
         <OptionText>{viewOptions[selectedIndex]}</OptionText>
       </Button>
-     
-      <StyledMenu
+      {width >= 900 ? <StyledMenuLarge
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -101,12 +139,32 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
         key={option}
         onClick={(event) => handleMenuItemClick(event, index)} 
         disableRipple
+        TransitionUp
         sx={{justifyContent:'space-between'}}>
           <Typography>{option}</Typography>
           {index === selectedIndex && <Check />}
         </MenuItem>)}
        
-      </StyledMenu>
+      </StyledMenuLarge>
+      : <StyledMenuSmall
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        >
+        {viewOptions.map((option, index)=> <MenuItem 
+        key={option}
+        onClick={(event) => handleMenuItemClick(event, index)} 
+        disableRipple
+        TransitionUp
+        sx={{justifyContent:'space-between'}}>
+          <Typography>{option}</Typography>
+          {index === selectedIndex && <Check />}
+        </MenuItem>)}
+       
+      </StyledMenuSmall>}
+     
+     
+      
         
     </div>
   );

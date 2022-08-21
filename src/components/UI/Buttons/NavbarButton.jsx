@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const NavbarButtonContainer = styled.div`
-  display: flex;
+const NavbarButtonStyle = styled.div`
+  display: ${({show})=> show? "flex" : "none"};
   flex-direction: column;
   justify-content: space-around;
   width: 27px;
@@ -11,8 +11,7 @@ const NavbarButtonContainer = styled.div`
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1500;
-
+  z-index: 4000;
   &:focus {
     outline: none;
   }
@@ -44,13 +43,16 @@ div {
 `
 
 
-const NavbarButton = ({ isOpen,setIsOpen}) => {
+const NavbarButton = ({ isOpen,setIsOpen, show, onClick}) => {
+
   return (
-    <NavbarButtonContainer open={isOpen} onClick={()=> setIsOpen(!isOpen)}>
+    <div >
+    <NavbarButtonStyle open={isOpen} onClick={onClick} show={show}>
         <div />
         <div />
         <div />
-    </NavbarButtonContainer>
+    </NavbarButtonStyle>
+    </div>
   )
 }
 

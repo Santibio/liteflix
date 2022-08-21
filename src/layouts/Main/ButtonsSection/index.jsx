@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 const ButtonsSection = () => {
   return (
     <Grid container spacing={2} mt={1}>
-      <Grid item xs={12} md={6} gap={2} display="flex" justifyContent="center" alignItems="center" sx={{ flexDirection: {xs:"column", md: "row"}}}>
+      <Grid item xs={12} md={6} gap={2} display="flex" justifyContent={{xs: "center", md:"flex-start"}} alignItems='center' sx={{ flexDirection: {xs:"column", md: "row"}}}>
        <MainButton variant="contained" startIcon={<PlayArrowOutlinedIcon />}>Reproducir</MainButton>
         <MainButton 
         variant="outlined"
