@@ -16,12 +16,9 @@ const theme = createTheme({
     },
   },
   components: {
-    // Name of the component
     MuiButton: {
       styleOverrides: {
-        // Name of the slot
         root: {
-          // Some CSS
           backgroundColor: "transparent",
           "&:active": {
             backgroundColor: "transparent",
@@ -29,6 +26,17 @@ const theme = createTheme({
           "&:hover": {
             backgroundColor: "transparent",
           },
+          "&:disabled": {
+            backgroundColor: "#919191",
+            color: "#000",
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#242424",
         },
       },
     },
