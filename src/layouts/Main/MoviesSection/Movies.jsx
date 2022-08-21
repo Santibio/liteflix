@@ -46,9 +46,9 @@ const Movies = ({selectedIndex, viewOptions}) => {
  
   return (
     <MoviesContainer>
-        {selectedMovies.map(({id,picture, title, rating,year })=>(
+        {selectedMovies.map(({id,picture, title, rating,year }, index)=>(
         <Movie 
-        key={id}
+        key={id || index}
         picture={picture} 
         title={title}
         rating={rating} 

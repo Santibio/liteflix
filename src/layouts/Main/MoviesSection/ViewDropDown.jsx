@@ -10,14 +10,14 @@ import { useState } from 'react';
 import styledComponent from 'styled-components'
 import useWindowSize from '../../../hooks/useWindowSize';
 
-const TransitionUp = React.forwardRef(function Transition(props, ref) {
+const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 const StyledMenuSmall = styled((props) =>(
   <Menu
     elevation={0}
-    TransitionComponent={TransitionUp}
+    TransitionComponent={Transition}
     
     {...props}
   />
@@ -139,7 +139,6 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
         key={option}
         onClick={(event) => handleMenuItemClick(event, index)} 
         disableRipple
-        TransitionUp
         sx={{justifyContent:'space-between'}}>
           <Typography>{option}</Typography>
           {index === selectedIndex && <Check />}
@@ -155,7 +154,6 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
         key={option}
         onClick={(event) => handleMenuItemClick(event, index)} 
         disableRipple
-        TransitionUp
         sx={{justifyContent:'space-between'}}>
           <Typography>{option}</Typography>
           {index === selectedIndex && <Check />}
