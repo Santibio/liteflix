@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import Header from "./layouts/Header";
 import Main from "./layouts/Main";
-import AddMovie from './layouts/AddMovie'
+import AddMovie from "./layouts/AddMovie";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getFeaturedMovieRequest } from "./store/apiMoviesSlice";
 
 const MainContainer = styled.div`
   height: 100vh;
@@ -18,11 +20,14 @@ const MainContainer = styled.div`
 `;
 
 function App() {
-  const {featuredMovie} = useSelector((state) => state.apiMovies);
+  const dispatch = useDispatch();
+  const { featuredMovie } = useSelector((state) => state.apiMovies);
+  
+  useEffect(() => {
+    dispatch(getFeaturedMovieRequest());
+  }, [dispatch]);
   return (
-    <MainContainer
-      bgImage="https://image.tmdb.org/t/p/original/p1F51Lvj3sMopG948F5HsBbl43C.jpg"
-    >
+    <MainContainer bgImage={featuredMovie.picture}>
       <Header />
       <Main />
       <AddMovie />
