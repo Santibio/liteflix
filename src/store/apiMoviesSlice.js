@@ -19,7 +19,7 @@ export const apiMovies = createSlice({
     },
   },
 });
-// Action creators are generated for each case reducer function
+
 export const { getFeaturedMovie, getPopularMovies } = apiMovies.actions;
 
 export const getFeaturedMovieRequest = () => async (dispatch) => {

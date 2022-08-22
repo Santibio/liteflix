@@ -17,7 +17,6 @@ export const addMovieModalSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { openModal, closeModal } = addMovieModalSlice.actions;
 
 export default addMovieModalSlice.reducer;

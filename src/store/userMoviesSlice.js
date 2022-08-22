@@ -14,7 +14,7 @@ export const userMovies = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
+
 export const { getuserMovies } = userMovies.actions;
 
 export default userMovies.reducer;

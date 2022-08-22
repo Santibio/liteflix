@@ -18,7 +18,6 @@ const StyledMenuSmall = styled((props) =>(
   <Menu
     elevation={0}
     TransitionComponent={Transition}
-    
     {...props}
   />
 ))(({ theme }) => ({
@@ -143,7 +142,6 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
           <Typography>{option}</Typography>
           {index === selectedIndex && <Check />}
         </MenuItem>)}
-       
       </StyledMenuLarge>
       : <StyledMenuSmall
         anchorEl={anchorEl}
@@ -158,12 +156,7 @@ export default function CustomizedMenus({setSelectedIndex, selectedIndex, viewOp
           <Typography>{option}</Typography>
           {index === selectedIndex && <Check />}
         </MenuItem>)}
-       
       </StyledMenuSmall>}
-     
-     
-      
-        
     </div>
   );
 }

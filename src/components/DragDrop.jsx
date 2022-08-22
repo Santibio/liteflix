@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import styled from 'styled-components'
 import { Typography } from "@mui/material";
 import useWindowSize from "../hooks/useWindowSize";
+import RenderIf from "./RenderIf";
 
 const FileUploaderContainer = styled.div`
 border: 2px dashed #fff;
@@ -30,7 +31,6 @@ font-weight: 400;
 line-height: 19px;
 letter-spacing: 4px;
 text-align: left;
-
 }
 `
 
@@ -38,7 +38,8 @@ const fileTypes = ["JPG", "PNG"];
 
 const DragDrop = ({handleChange, setHasError}) =>{
   const { width } = useWindowSize()
-    const onTypeError = () => {
+
+  const onTypeError = () => {
       setHasError(true)
     }
  
@@ -54,10 +55,11 @@ const DragDrop = ({handleChange, setHasError}) =>{
         <Typography color='primary' className="add-file-text">
             Agrega un archivo
         </Typography>
-        {width >= 900 &&  <Typography color='primary' className="add-file-text">
+      <RenderIf isTrue={width >= 900}>
+        <Typography color='primary' className="add-file-text">
            o arrastralo y soltalo aquí
-        </Typography>}
-       
+        </Typography>
+      </RenderIf>
       </FileUploaderContainer>
     </FileUploader>
   );

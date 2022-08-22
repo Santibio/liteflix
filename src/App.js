@@ -29,6 +29,7 @@ function App() {
   useEffect(() => {
     dispatch(getFeaturedMovieRequest());
   }, [dispatch]);
+  
   return (
     <>
       {featuredMovie ? (

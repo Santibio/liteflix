@@ -72,18 +72,15 @@ const Navbar = () => {
          <Grow in={open}   style={{ transformOrigin: '0 0 0' }}
           {...(open ? { timeout: 1000 } : {})}>
       <List>
-
          <ListItem key={'closeSesion'} >
             <ListItemText primary={"Cerrar Sesión"} />
           </ListItem>
       </List>
           </Grow>
-       
     </Box>
   );
 
   return (
-
         <>
           <NavbarButton  setIsOpen={setOpen} isOpen={open} show={!open} onClick={()=> setOpen(!open)}/>
           <SwipeableDrawer

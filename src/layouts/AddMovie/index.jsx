@@ -12,6 +12,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import CloseIcon from '@mui/icons-material/Close';
 import Title from '../Header/Title';
 import IconButton from '@mui/material/IconButton';
+import RenderIf from '../../components/RenderIf';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -26,7 +27,7 @@ const CustomInput = styled(Input)`
   width: 248px;
   transition: border-bottom 250ms ease;
   padding-bottom: 5px;
- & ::placeholder,
+  & ::placeholder,
   ::-webkit-input-placeholder {
     color: #fff;
     text-align: center;
@@ -84,8 +85,6 @@ const AddMovie = () => {
       setHasError(true)
     }
   };
-
-
 
   const handleInputTitle = (event=>{
     const titleValue = event.target.value
@@ -161,12 +160,16 @@ const AddMovie = () => {
              customcolortext="#000" 
              variant="contained" 
              onClick={handleSubmit}>Subir Pelicula</MainButton>
-             {width <= 900 && <MainButton variant="outlined" onClick={restartValues}>Salir</MainButton>}
+             <RenderIf isTrue={width <= 900}>
+              <MainButton variant="outlined" onClick={restartValues}>Salir</MainButton>
+             </RenderIf>
              </Stack>
              </> : 
              <>
-             {width >= 900 && <Title/>}
-               <Typography color="primary" variant="h4">¡Felicitaciones!</Typography>
+              <RenderIf isTrue={width >= 900}>
+                <Title/>
+              </RenderIf>
+              <Typography color="primary" variant="h4">¡Felicitaciones!</Typography>
                <Typography color="primary" variant='h6' textAlign="center" >{`${title} fue correctamente subida.`}</Typography>
               <MainButton 
                  disabled={!file || !title.trim().length || progress < 100} 

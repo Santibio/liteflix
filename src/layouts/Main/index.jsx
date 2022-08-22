@@ -12,28 +12,24 @@ const Index = () => {
   return (
     <Grid container px={{xs: 2, md: 4}} ref={containerRef}>
       <Slide
-              direction="right"
-              in={true}
-              timeout={1000}
-              container={containerRef.current}
-            >
-
+        direction="right"
+        in={true}
+        timeout={1000}
+        container={containerRef.current}>
       <Grid item xs={12} md={9}>
         <TitleSection/>
         <ButtonsSection/>
       </Grid>
-            </Slide>
-            <Slide
-              direction="left"
-              in={true}
-              timeout={1000}
-              container={containerRef.current}
-            >
-
+      </Slide>
+      <Slide
+        direction="left"
+        in={true}
+        timeout={1000}
+        container={containerRef.current}>
       <Grid item  xs={12} md={3}>
         <MoviesSection/>
       </Grid>
-            </Slide>
+        </Slide>
     </Grid>
   )
 }
