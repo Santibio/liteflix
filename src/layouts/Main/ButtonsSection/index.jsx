@@ -2,7 +2,6 @@ import React from 'react'
 import MainButton from '../../../components/UI/Buttons/Button'
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import styled from 'styled-components'
 import Grid from '@mui/material/Grid';
 
 const ButtonsSection = () => {
