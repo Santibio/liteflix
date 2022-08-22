@@ -30,20 +30,23 @@ const ProgressBar = ({hasError, setIsProgressbarOpen, setProgress, progress})=> 
         texts={
             progressText: `Cargando: ${progress}%`,
             buttonText: `Cancelar`,
-            buttonAction: ()=> setIsProgressbarOpen(false)
+            buttonAction: ()=> setIsProgressbarOpen(false),
+            cursor: 'pointer'
         }
         break
     case "error": 
         texts={
             progressText: `¡ERROR! no se pudo cargar la película`,
             buttonText: `Reintentar`,
-            buttonAction: ()=> setIsProgressbarOpen(false)
+            buttonAction: ()=> setIsProgressbarOpen(false),
+            cursor: "pointer"
         }
         break
     case "success": 
         texts={
             progressText: `${progress}% Cargado`,
             buttonText: `¡listo!`,
+            cursor: ''
         }
         break
     default:
@@ -56,7 +59,7 @@ const ProgressBar = ({hasError, setIsProgressbarOpen, setProgress, progress})=> 
         {texts.progressText}
         </Typography>
       <LinearProgress variant="determinate" value={progress} color={hasError? "error" : "secondary"}/>
-    <Typography color="primary" sx={{ float: "right", marginTop: "5px"}} onClick={texts.buttonAction}>{texts.buttonText}</Typography>
+    <Typography color="primary" sx={{ float: "right", marginTop: "5px", cursor: texts.cursor }} onClick={texts.buttonAction}>{texts.buttonText}</Typography>
     </Box>
   );
 }
