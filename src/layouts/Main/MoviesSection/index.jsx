@@ -4,7 +4,7 @@ import Movies from './Movies'
 import Grid from '@mui/material/Grid';
 
 
-const viewOptions = ["Populares", "Mis Peliculas"]
+const viewOptions = ["Populares", "Mis Películas"]
 
 const Index = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);

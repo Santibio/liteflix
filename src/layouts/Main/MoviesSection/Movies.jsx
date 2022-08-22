@@ -38,7 +38,7 @@ const Movies = ({selectedIndex, viewOptions}) => {
     case "Populares":
       selectedMovies = popularMovies
       break
-    case "Mis Peliculas":
+    case "Mis Películas":
       selectedMovies = userMovies
       break
     default:
@@ -56,7 +56,7 @@ const Movies = ({selectedIndex, viewOptions}) => {
         title={title}
         rating={rating} 
         year={year}/>
-          )) : <Typography color="primary" variant="h6">No se encuentran peliculas</Typography>}
+          )) : <Typography color="primary" variant="h6">No se encuentran Películas</Typography>}
     </MoviesContainer>
   )
 }
