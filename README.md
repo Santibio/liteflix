@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# PROJECT LITEFLIX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
 
-## Available Scripts
+This is a project that was developed for a technical interview, which aims to evaluate the skills of the programmer. It consists of building a web application inspired by netflix. It uses the "The MovieDB" API to obtain the data and the browser's localStorage to save the user's movie data.
+[DEMO](https://liteflix-six.vercel.app/) - Where it is deploy
 
-In the project directory, you can run:
+<p align="center">
+  <img src="./src/assets/images/desktop.png"   />
+  <img src="./src/assets/images/mobile.png" width="350" />
+</p>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Requirements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+For development, you will only need Node.js installed on your environement.
+And please use the appropriate [Editorconfig](http://editorconfig.org/) plugin for your Editor (not mandatory).
 
-### `npm test`
+### Node
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
+You should be able to run the following command after the installation procedure
+below.
 
-### `npm run build`
+    $ node --version
+    v0.10.24
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    $ npm --version
+    1.3.21
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Node installation on OS X
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You will need to use a Terminal. On OS X, you can find the default terminal in
+`/Applications/Utilities/Terminal.app`.
 
-### `npm run eject`
+Please install [Homebrew](http://brew.sh/) if it's not already done with the following command.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    $ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If everything when fine, you should run
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    brew install node
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Node installation on Linux
 
-## Learn More
+    sudo apt-get install python-software-properties
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+    sudo apt-get install nodejs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Node installation on Windows
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Just go on [official Node.js website](http://nodejs.org/) & grab the installer.
+Also, be sure to have `git` available in your PATH, `npm` might need it.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Install
 
-### Analyzing the Bundle Size
+    $ git clone https://github.com/ORG/PROJECT.git
+    $ cd PROJECT
+    $ npm install
+## Start & watch
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    $ npm start
 
-### Making a Progressive Web App
+## Simple build for production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    $ npm run build
 
-### Advanced Configuration
+## Update sources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Some packages usages might change so you should run `npm prune` & `npm install` often.
+A common way to update is by doing
 
-### Deployment
+    $ git pull
+    $ npm prune
+    $ npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To run those 3 commands you can just do
 
-### `npm run build` fails to minify
+    $ npm run pull
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Languages & tools
+
+### HTML
+
+- [Vanilla](https://developer.mozilla.org/es/docs/Web/HTML) for some templating.
+
+### JavaScript
+
+- [React](http://facebook.github.io/react) is used for UI.
+
+### CSS
+
+- [Material UI](https://mui.com/) is used for the pre-build components
+- [Styled Components](https://mui.com/) is used for style components faster
