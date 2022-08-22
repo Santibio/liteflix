@@ -91,7 +91,7 @@ To run those 3 commands you can just do
 ### JavaScript
 
 - [React](http://facebook.github.io/react) is used for UI.
-- [Redux-Toolki] (https://redux-toolkit.js.org/) is used for managing global state
+- [Redux-Toolkit](https://redux-toolkit.js.org/) is used for managing global state
 
 ### CSS
 
