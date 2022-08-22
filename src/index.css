@@ -5,5 +5,5 @@
 
 body {
   background-color: #242424 !important;
-  overflow: hidden;
+  overflow-x: hidden;
 }
