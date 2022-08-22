@@ -5,7 +5,7 @@
 This is a project that was developed for a technical interview, which aims to evaluate the skills of the programmer. It consists of building a web application inspired by netflix. It uses the "The MovieDB" API to obtain the data and the browser's localStorage to save the user's movie data.
 
 
-Deploy in [VERCEL](https://liteflix-six.vercel.app/)
+Deployed in [VERCEL](https://liteflix-six.vercel.app/)
 
 <p align="center">
   <img src="./src/assets/images/desktop.png"   />
@@ -16,7 +16,6 @@ Deploy in [VERCEL](https://liteflix-six.vercel.app/)
 ## Requirements
 
 For development, you will only need Node.js installed on your environement.
-And please use the appropriate [Editorconfig](http://editorconfig.org/) plugin for your Editor (not mandatory).
 
 ### Node
 
@@ -59,14 +58,14 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
 
 ## Install
 
-    $ git clone https://github.com/ORG/PROJECT.git
+    $ git clone https://github.com/Santibio/liteflix.git
     $ cd PROJECT
     $ npm install
 ## Configure app
 
 Create a file called .env in the root of your project and add a REACT_APP_API_KEY=Your Api Key. Otherwise, you won't be able to connect to the API. You can generate one [here](https://developers.themoviedb.org/3/getting-started/introduction). 
 
-    $ REACT_APP_API_KEY=<Your Api Key>
+    $ REACT_APP_API_KEY=<YOUR_API_KEY>
 
 For more information about enviroments variables and React check this [page](https://create-react-app.dev/docs/adding-custom-environment-variables/).
  
