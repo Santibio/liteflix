@@ -44,13 +44,13 @@ const Navbar = () => {
       sx={{ width:  boxWidth, paddingLeft: {md: "2rem"} }}
     >
       <List sx={{ marginTop: {xs: "1rem", md:"2rem"}, zIndex: 2000 }}>
-         <ListItem key={"1"} onClick={()=>dispatch(closeModal())} sx={{marginBottom: "2rem"}} >
+         <ListItem key={"button"} onClick={()=>dispatch(closeModal())} sx={{marginBottom: "2rem"}} >
              <NavbarButton  isOpen={open} show />
           </ListItem>
         {navbarOptions.map((text, index) => (
-      <Grow in={open}   style={{ transformOrigin: '0 0 0' }}
+      <Grow in={open}  key={text}  style={{ transformOrigin: '0 0 0' }}
           {...(open ? { timeout: index  * 200 } : {})}>
-          <ListItem key={text} onClick={()=>dispatch(closeModal())} >
+          <ListItem  onClick={()=>dispatch(closeModal())} >
               <ListItemText primary={text} />
           </ListItem>
         </Grow>

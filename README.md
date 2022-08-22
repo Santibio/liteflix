@@ -3,7 +3,9 @@
 ## Summary
 
 This is a project that was developed for a technical interview, which aims to evaluate the skills of the programmer. It consists of building a web application inspired by netflix. It uses the "The MovieDB" API to obtain the data and the browser's localStorage to save the user's movie data.
-[DEMO](https://liteflix-six.vercel.app/) - Where it is deploy
+
+
+Deploy in [VERCEL](https://liteflix-six.vercel.app/)
 
 <p align="center">
   <img src="./src/assets/images/desktop.png"   />
@@ -91,9 +93,9 @@ To run those 3 commands you can just do
 ### JavaScript
 
 - [React](http://facebook.github.io/react) is used for UI.
-- [Redux-Toolkit](https://redux-toolkit.js.org/) is used for managing global state
+- [Redux-Toolkit](https://redux-toolkit.js.org/) is used for managing global state.
 
 ### CSS
 
-- [Material UI](https://mui.com/) is used for the pre-build components
-- [Styled Components](https://mui.com/) is used for style components faster
+- [Material UI](https://mui.com/) is used for the pre-build components.
+- [Styled Components](https://mui.com/) is used for style components faster.

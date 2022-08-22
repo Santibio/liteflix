@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL ="https://api.themoviedb.org/3/movie";
-const API_KEY = "6f26fd536dd6192ec8a57e94141f8b20";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const API = axios.create({
   baseURL,
