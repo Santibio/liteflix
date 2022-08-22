@@ -103,6 +103,12 @@ border-radius: 4px;
     padding-left: 2px;
     margin: 0
 }
+.info-text-hover{
+     text-overflow: ellipsis;
+     overflow: hidden; 
+     white-space: nowrap;
+     width: 244; 
+}
 
 .rating-year-container{
     display: flex;
