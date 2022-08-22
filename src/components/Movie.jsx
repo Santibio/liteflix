@@ -107,7 +107,11 @@ border-radius: 4px;
      text-overflow: ellipsis;
      overflow: hidden; 
      white-space: nowrap;
-     width: 244; 
+     width: 244px; 
+     
+       @media (min-width: 900px) {
+         width: 160px; 
+  }
 }
 
 .rating-year-container{
