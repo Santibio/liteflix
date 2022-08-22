@@ -62,6 +62,15 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
     $ git clone https://github.com/ORG/PROJECT.git
     $ cd PROJECT
     $ npm install
+## Configure app
+
+Create a file called .env in the root of your project and add a REACT_APP_API_KEY=Your Api Key. Otherwise, you won't be able to connect to the API. You can generate one [here](https://developers.themoviedb.org/3/getting-started/introduction). 
+
+    $ REACT_APP_API_KEY=<Your Api Key>
+
+For more information about enviroments variables and React check this [page](https://create-react-app.dev/docs/adding-custom-environment-variables/).
+ 
+
 ## Start & watch
 
     $ npm start
