@@ -5,7 +5,7 @@
 This is a project that was developed for a technical interview, which aims to evaluate the skills of the programmer. It consists of building a web application inspired by netflix. It uses the "The MovieDB" API to obtain the data and the browser's localStorage to save the user's movie data.
 
 
-Deployed in [VERCEL](https://liteflix-six.vercel.app/)
+Deployed in [VERCEL](https://liteflix-santibio.vercel.app/)
 
 <p align="center">
   <img src="./src/assets/images/desktop.png"   />
