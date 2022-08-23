@@ -106,7 +106,12 @@ const AddMovie = () => {
 
     } catch(e){
       restartValues()
-      toast.error(e.message)
+      toast.error(e.message,{
+        style:{
+          backgroundColor: '#242424',
+          color: '#fff'
+        }
+      })
     }
 
   }
